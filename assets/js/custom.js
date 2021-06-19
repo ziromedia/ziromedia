@@ -1,3 +1,7 @@
+$(".home_banner").scroll(function(){
+    $(".home_banner").slideUp();
+    $(".info_section").slideDown();
+});
 $(".menu_bars").click(function(){
     $(".menu_items").slideToggle();
 });
@@ -29,12 +33,12 @@ $(document).ready(function(){
     window.scrollTo(0, 0);
   });
   $(".next_page").click(function(){
-    $(".home_banner").slideUp();
-    $(".info_section").slideDown();
+    $(".home_banner").fadeOut();
+    $(".info_section").fadeIn();
   });
   $(".home_screen").click(function(){
     $(".info_section").slideUp();
-    $(".home_banner").slideDown();
+    $(".home_banner").fadeIn();
   });
   if ($('.slider').length > 0) {  
     const $slider = $(".slider");
@@ -325,7 +329,7 @@ var animationData = {
             ],
             sw: 1080,
             sh: 1080,
-            sc: "#f4e097",
+            sc: "#ffffff",
             ip: 4,
             op: 33,
             st: 4,
@@ -608,7 +612,10 @@ anim.addEventListener("complete", function () {
 close.addEventListener("click", function () {
     anim.setDirection(-1);
     anim.play();
-    body.classList.remove("open");
+    
+    setTimeout(function(){
+      body.classList.remove("open");
+    }, 300);
 });
 
   });
